@@ -2,8 +2,6 @@
 
 namespace Notable\GaMeasurementProtocol;
 
-use Notable\GaMeasurementProtocol\Payload;
-
 /**
  * Measurement Protocol API Date: August 1, 2014.
  * 
@@ -32,16 +30,16 @@ class Uri
 	 */
 	private $_ssl_endpoint;
 	
-	/**
-	 * @param Payload $Payload
-	 */
 	public function __construct()
 	{	
 		$this->_use_ssl = FALSE;	
 		$this->_endpoint = 'http://www.google-analytics.com/collect';	
 		$this->_ssl_endpoint = 'https://ssl.google-analytics.com/collect';	
 	}
-	
+
+	/**
+	 * @return string
+     */
 	public function get()
 	{		
 		return ($this->_use_ssl === TRUE) ? $this->_ssl_endpoint : $this->_endpoint;		
@@ -49,7 +47,7 @@ class Uri
 	
 	/**
 	 * @param boolean $boolean
-	 * @return \GaMeasurementProtocol\HttpRequest
+	 * @return HttpRequest
 	 */
 	public function setUseSsl($boolean)
 	{	
