@@ -1,6 +1,6 @@
 <?php
 
-namespace Notable\GoogleAnalytics\MeasurementProtocol\HitTypes;
+namespace Notable\GaMeasurementProtocol\HitTypes;
 
 /**
  * @author Daniel Kennedy dkennedy4@gmail.com

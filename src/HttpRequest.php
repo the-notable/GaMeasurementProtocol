@@ -1,9 +1,9 @@
 <?php
 
-namespace Notable\GoogleAnalytics\MeasurementProtocol;
+namespace Notable\GaMeasurementProtocol;
 
-use Notable\GoogleAnalytics\MeasurementProtocol\Uri,
-Notable\GoogleAnalytics\MeasurementProtocol\Payload;
+use Notable\GaMeasurementProtocol\Uri,
+Notable\GaMeasurementProtocol\Payload;
 
 /**
  * @author Daniel Kennedy dkennedy4@gmail.com

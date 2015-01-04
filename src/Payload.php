@@ -1,8 +1,8 @@
 <?php
 
-namespace Notable\GoogleAnalytics\MeasurementProtocol;
+namespace Notable\GaMeasurementProtocol;
 
-use Notable\GoogleAnalytics\MeasurementProtocol\HitTypes\HitInterface;
+use Notable\GaMeasurementProtocol\HitTypes\HitInterface;
 
 /**
  * Creates a payload string.
@@ -17,7 +17,7 @@ use Notable\GoogleAnalytics\MeasurementProtocol\HitTypes\HitInterface;
 class Payload {
 	
 	/**
-	 * @var \Notable\GoogleAnalytics\MeasurementProtocol\HitTypes\HitInterface
+	 * @var \Notable\GaMeasurementProtocol\HitTypes\HitInterface
 	 */
 	private $_HitObject;
 	

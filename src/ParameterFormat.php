@@ -1,6 +1,6 @@
 <?php
 
-namespace Notable\GoogleAnalytics\MeasurementProtocol;
+namespace Notable\GaMeasurementProtocol;
 
 /**
  * Provides methods to format data according to
