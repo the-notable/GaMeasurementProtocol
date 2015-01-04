@@ -1,24 +1,28 @@
 <?php
 
-namespace Notable\GaMeasurementProtocol\HitTypes;
+namespace Notable\GaMeasurementProtocol;
+
+use Notable\GaMeasurementProtocol\HitTypes\Event;
+use Notable\GaMeasurementProtocol\HitTypes\HitAbstract;
 
 /**
  * Class HitFactory
+ *
  * @package Notable\GaMeasurementProtocol\HitTypes
  */
 class HitFactory
 {
-	
+
 	/**
 	 * @var HitAbstract
 	 */
 	private $_ReturnHit;
-	
+
 	/**
 	 * @var string
 	 */
 	private $_tracking_id;
-	
+
 	/**
 	 * @var string
 	 */
@@ -33,7 +37,7 @@ class HitFactory
 	 * @param string $hit_type
 	 * @param string $tracking_id
 	 * @param boolean|string $client_id
-	 * @return HitAbstract|NULL
+	 * @return NULL|HitAbstract
 	 * @throws \Exception
 	 */
 	public function get($hit_type, $tracking_id, $client_id)
@@ -125,5 +129,5 @@ class HitFactory
 		$data[8] = chr(ord($data[8]) & 0x3f | 0x80); // set bits 6-7 to 10
 		return vsprintf('%s%s-%s-%s-%s-%s%s%s', str_split(bin2hex($data), 4));
 	}
-	
+
 }

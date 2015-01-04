@@ -4,6 +4,11 @@ namespace Notable\GaMeasurementProtocol;
 
 use Notable\GaMeasurementProtocol\HitTypes\HitInterface;
 
+/**
+ * Class PostRequest
+ *
+ * @package Notable\GaMeasurementProtocol
+ */
 class PostRequest {
 	
 	/**
@@ -15,6 +20,11 @@ class PostRequest {
 	 * @var string
 	 */
 	private $_user_agent;
+
+	/**
+	 * @var array
+     */
+	private $_curl_info;
 
 	/**
 	 * @param Uri $Uri
@@ -35,9 +45,9 @@ class PostRequest {
 		$payload = $HitObject->getPayload();
 		$HttpRequest = new HttpRequest($this->_Uri, $payload, $this->_user_agent);
 		$HttpRequest->send();		
-		$curl_result = $HttpRequest->getCurlInfo();		
+		$this->_curl_info = $HttpRequest->getCurlInfo();
 		/** True if code is in 200 range */
-		return ($curl_result['http_code'] > 199 && $curl_result['http_code'] < 300) ? TRUE : FALSE;		
+		return ($this->_curl_info['http_code'] > 199 && $this->_curl_info['http_code'] < 300) ? TRUE : FALSE;
 	}
 
 	/**
@@ -60,6 +70,14 @@ class PostRequest {
 		if (isset($this->_user_agent)){			
 			return $this->_user_agent;			
 		}		
+	}
+
+	/**
+	 * @return array
+     */
+	public function getCurlInfo()
+	{
+		return $this->_curl_info;
 	}
 	
 }
