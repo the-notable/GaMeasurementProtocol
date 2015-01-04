@@ -1,5 +1,5 @@
 {
-  "name": "the-notable/ga-measurement-protocol",
+  "name": "the-notable/GaMeasurementProtocol",
   "autoload": {
     "psr-4": { "Notable\\GaMeasurementProtocol\\": "src/" }
   }
