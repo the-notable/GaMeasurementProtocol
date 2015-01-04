@@ -11,7 +11,8 @@ namespace Notable\GaMeasurementProtocol;
  * @version 1.0
  * @link https://developers.google.com/analytics/devguides/collection/protocol/v1/reference
  */
-class ParameterFormat {
+class ParameterFormat
+{
 	
 	/**
 	 * Returns number formatted according to Google's requirements:
@@ -26,21 +27,16 @@ class ParameterFormat {
 	 * 
 	 * @param number $number
 	 * @return boolean|number
+	 * @throws \Exception
 	 */
-	public function currency($number){
-		
+	public function currency($number)
+	{
 		if (!is_numeric($number)){
-			
 			$type = gettype($number);
-			
-			trigger_error("Parameter one expected type 'number', '$type' given.", E_USER_WARNING);
-			
-			return FALSE;
-			
+			throw new \Exception("Parameter one expected type 'number', '$type' given.");
+			return false;
 		}
-		
 		return round($number, 6);
-		
 	}
 	
 }

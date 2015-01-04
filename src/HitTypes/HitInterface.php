@@ -8,10 +8,18 @@ namespace Notable\GaMeasurementProtocol\HitTypes;
  * @version 1.0
  * @link https://developers.google.com/analytics/devguides/collection/protocol/v1/reference
  */
-interface HitInterface {
-	
+interface HitInterface
+{
+
+	/**
+	 * @param array $child_required_param_codes
+	 * @return boolean
+     */
 	public function hasRequiredParameters(array $child_required_param_codes = NULL);
-	
+
+	/**
+	 * @return mixed
+     */
 	public function getParameters();
 	
 }
