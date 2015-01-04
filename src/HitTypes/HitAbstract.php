@@ -56,6 +56,36 @@ abstract class HitAbstract implements HitInterface
     }
 
     /**
+     * @return string
+     */
+    public function getPayload()
+    {
+        $payload = '';
+        $parameters = $this->getParameters();
+
+        /* The 'z' parameter is Cache Busting and must be at the end */
+        if (isset($parameters['z'])){
+            $cache_busting = $parameters['z'];
+            unset($parameters['z']);
+        }
+
+        $ii = 0;
+        foreach ($parameters as $key => $param){
+            $payload .= ($ii === 0) ? '' : '&';
+            $payload .= $key.'=';
+            $payload .= urlencode($param);
+            $ii++;
+        }
+
+        /* Check if Cache Busting was pulled earlier */
+        if (isset($cache_busting)){
+            $payload .= '&z='.$cache_busting;
+        }
+
+        return utf8_encode($payload);
+    }
+
+    /**
      * The Protocol version. The current value is '1'.
      * This will only change when there are changes made that are not backwards compatible.
      *

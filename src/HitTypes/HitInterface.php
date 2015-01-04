@@ -21,5 +21,10 @@ interface HitInterface
 	 * @return mixed
      */
 	public function getParameters();
+
+	/**
+	 * @return string
+     */
+	public function getPayload();
 	
 }

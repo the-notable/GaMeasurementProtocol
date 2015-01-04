@@ -32,7 +32,7 @@ class Uri
 	
 	public function __construct()
 	{	
-		$this->_use_ssl = FALSE;	
+		$this->_use_ssl = false;
 		$this->_endpoint = 'http://www.google-analytics.com/collect';	
 		$this->_ssl_endpoint = 'https://ssl.google-analytics.com/collect';	
 	}
@@ -42,7 +42,7 @@ class Uri
      */
 	public function get()
 	{		
-		return ($this->_use_ssl === TRUE) ? $this->_ssl_endpoint : $this->_endpoint;		
+		return ($this->_use_ssl === true) ? $this->_ssl_endpoint : $this->_endpoint;
 	}
 	
 	/**

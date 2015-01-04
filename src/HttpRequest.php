@@ -35,16 +35,16 @@ class HttpRequest
 	 * @var boolean
 	 */
 	private $_response;
-	
+
 	/**
 	 * @param Uri $Uri
-	 * @param Payload $Payload
+	 * @param string $payload
 	 * @param string $user_agent
 	 */
-	public function __construct(Uri $Uri, Payload $Payload, $user_agent)
+	public function __construct(Uri $Uri, $payload, $user_agent)
 	{
 		$this->_uri = $Uri->get();
-		$this->_payload = $Payload->get();
+		$this->_payload = $payload;
 		$this->_user_agent = $user_agent;
 	}
 
