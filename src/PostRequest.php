@@ -27,13 +27,16 @@ class PostRequest {
 	private $_curl_info;
 
 	/**
-	 * @param Uri $Uri
-	 * @param $user_agent
+	 * @param string $user_agent
+	 * @param bool $use_ssl
      */
-	public function __construct(Uri $Uri, $user_agent)
+	public function __construct($user_agent, $use_ssl = false)
 	{
 		$this->setUserAgent($user_agent);
-		$this->_Uri = $Uri;			
+		$this->_Uri = new Uri();
+		if($use_ssl === true){
+			$this->_Uri->setUseSsl(true);
+		}
 	}
 	
 	/**

@@ -11,13 +11,15 @@ $client_id = 'uniqueuserid'; //can set to true and a random v4UUID will be gener
 $user_agent = 'youruseragentinfo';
 
 $HitFactory = new Notable\GaMeasurementProtocol\HitFactory();
-$HitObject = $HitFactory->get($hit_type, $tracking_id, $client_id);
-
-$Uri = new Notable\GaMeasurementProtocol\Uri();
-$Uri->setUseSsl(true); //if you dont want ssl ignore this step, default value is false
-
-$PostRequest = new Notable\GaMeasurementProtocol\PostRequest($Uri, $user_agent);
-if(!$PostRequest->send($HitObject){
-    $curl_info = $PostRequent->getCurlInfo();
+$EventHitObject = $HitFactory->get($hit_type, $tracking_id, $client_id);
+$EventHitObject
+    ->setNonInteractionHit(true)
+	->setUserId($User->userId) //just an example, different from $client_id above
+	->setEventCategory('Account Events')
+	->setEventAction('Subscription Deleted');
+		
+$PostRequest = new Notable\GaMeasurementProtocol\PostRequest($user_agent); //Optionally set second param to 'true' to make an SSL request
+if(!$PostRequest->send($EventHitObject){
+    $curl_info = $PostRequest->getCurlInfo();
 }
 ```
