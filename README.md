@@ -19,7 +19,7 @@ $EventHitObject
 	->setEventAction('Subscription Deleted');
 		
 $PostRequest = new Notable\GaMeasurementProtocol\PostRequest($user_agent); //Optionally set second param to 'true' to make an SSL request
-if(!$PostRequest->send($EventHitObject){
+if(!$PostRequest->send($EventHitObject)){
     $curl_info = $PostRequest->getCurlInfo();
 }
 ```
