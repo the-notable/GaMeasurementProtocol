@@ -73,6 +73,7 @@ class HitFactory
 			default:
 				return null;
 		}
+		return true;
 	}
 
 	/**
